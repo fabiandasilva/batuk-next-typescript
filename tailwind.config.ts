@@ -9,9 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
-        'tablet': '640px',   
-        'desktop': '1024px', 
+        'tablet': '640px',
+        'desktop': '1024px',
       },
+      fontFamily: {
+        'custom': ['Roboto', 'sans-serif'],
+      },
+      height: {
+        '1/3': '13.33%',
+    },
+    backgroundColor: {
+      'black-60': 'rgba(0, 0, 0, 0.71)',
+    },
     },
   },
   plugins: [],
