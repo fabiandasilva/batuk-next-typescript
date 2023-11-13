@@ -1,4 +1,27 @@
+import { MocukupDada } from '@/app/data/Mockup'
 import React from 'react'
+
+export async function generateMetadata({ params }: any) {
+ 
+
+  const products = MocukupDada;
+  
+ 
+  const targetProductId = parseInt(params.params, 10);
+
+ 
+  const productParams = products.filter((product) => product.id === targetProductId);
+  
+  console.log(productParams);
+
+  const nombreProducto = productParams[0].name;
+/*   console.log(nombreProducto) */
+
+  return {
+    title: `${productParams[0].name}`
+  };
+}
+
 
 const page = () => {
   return (
