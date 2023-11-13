@@ -1,39 +1,57 @@
-import Image from 'next/image';
-import React from 'react';
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
-const Card = () => {
+interface CardProps {
+  img: string;
+  name: string;
+  color: string;
+  price: number;
+  id: number;
+}
+
+const Card = ({ img, name, color, price, id }: CardProps) => {
+
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat("de-DE", {
+      style: "currency",
+      currency: "ARS",
+    }).format(price);
+  };
+
   return (
-    <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900">Ultimas novedades</h2>
-  
-        <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          <div className="group relative">
-            <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">             
-              <Image
-                    src={"https://res.cloudinary.com/dew1za4wz/image/upload/v1663875642/plants/batuk/camisas/CELEMED_lmtm4e.jpg"}
-                    alt="Batuk new collection"
-                    objectFit="contain"
-                    objectPosition="center"
-                    className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                    width="200"
-                    height="200"
-                />
-            </div>
-            <div className="mt-4 flex justify-between">
-              <div>
-                <h3 className="text-sm text-gray-700">
-                  <a href="#">
-                    <span aria-hidden="true" className="absolute inset-0"></span>
-                    Basic Tee
-                  </a>
-                </h3>
-                <p className="mt-1 text-sm text-gray-500">Black</p>
-              </div>
-              <p className="text-sm font-medium text-gray-900">$35</p>
+    <div className="group relative">
+      <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+        <Image
+          src={img}
+          alt="Batuk new collection"
+          objectFit="contain"
+          objectPosition="center"
+          className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+          width="200"
+          height="300"
+        />
+      </div>
+      <div className="mt-4 flex justify-between">
+        <div>
+          <h3 className="text-sm text-gray-700">
+            <Link href={`/store/${id}`}>
+              <span aria-hidden="true" className="absolute inset-0"></span>
+              {name}
+            </Link>
+          </h3>
+          <div className="flex space-x-1 text-sm text-gray-500">
+            <div
+              className="rounded-full w-5 h-5 border-black"
+              style={{ backgroundColor: color, border: "solid 1px black" }}
+            >              
+              &nbsp;
             </div>
           </div>
         </div>
+        <p className="text-sm font-medium text-gray-900"> 
+          {formatPrice(price)}
+        </p>
       </div>
     </div>
   );

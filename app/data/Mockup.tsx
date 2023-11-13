@@ -1,6 +1,6 @@
 export const MocukupDada = [
     {
-        "id": 1,
+        "id": 6323,
         "name": "COTE",
         "price": 4580,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875764/plants/batuk/remeras-chombas/COTEENT_yyckaw.jpg",
@@ -10,17 +10,17 @@ export const MocukupDada = [
         "newIn": false
     },
     {
-        "id": 2,
+        "id": 6761,
         "name": "ASTRO",
         "price": 4580,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875775/plants/batuk/remeras-chombas/ASTROMED_l9qzz7.jpg",
         "category": "Remera",
         "color": "#2471A3",
         "size": "S al XXL",
-        "newIn": true
+        "newIn": false
     },
     {
-        "id": 3,
+        "id": 5043,
         "name": "EVEN",
         "price": 4580,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875764/plants/batuk/remeras-chombas/LILAMED_ofiujf.jpg",
@@ -30,7 +30,7 @@ export const MocukupDada = [
         "newIn": false
     },
     {
-        "id": 4,
+        "id": 9981,
         "name": "FOOD",
         "price": 4380,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875763/plants/batuk/remeras-chombas/FFENT_uyqsqb.jpg",
@@ -40,17 +40,17 @@ export const MocukupDada = [
         "newIn": false
     },
     {
-        "id": 5,
+        "id": 4909,
         "name": "FRUIT",
         "price": 4580,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875764/plants/batuk/remeras-chombas/FRESHMED-1_vanwru.jpg",
         "category": "Remera",
         "color": "#ffff",
         "size": "S al XXL",
-        "newIn": true
+        "newIn": false
     },
     {
-        "id": 6,
+        "id": 3091,
         "name": "CERAMICS",
         "price": 4580,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875763/plants/batuk/remeras-chombas/CERAENT_ungqkb.jpg",
@@ -60,7 +60,7 @@ export const MocukupDada = [
         "newIn": true
     },
     {
-        "id": 7,
+        "id": 1849,
         "name": "POLI",
         "price": 3780,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875540/plants/batuk/accesorios%20/funnypakk-a_nlgq1k.jpg",
@@ -70,7 +70,7 @@ export const MocukupDada = [
         "newIn": false
     },
     {
-        "id": 8,
+        "id": 2040,
         "name": "MOCHILA ORIGINALS",
         "price": 7180,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875540/plants/batuk/accesorios%20/mochi-bksc-a_g0mjji.jpg",
@@ -80,7 +80,7 @@ export const MocukupDada = [
         "newIn": false
     },
     {
-        "id": 9,
+        "id": 2065,
         "name": "COWBOY",
         "price": 3580,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875540/plants/batuk/accesorios%20/rinora-b_fudbjm.jpg",
@@ -90,27 +90,17 @@ export const MocukupDada = [
         "newIn": false
     },
     {
-        "id": 10,
+        "id": 4581,
         "name": "MEDIAS B1",
         "price": 3900,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875547/plants/batuk/accesorios%20/medias-batuk-007-2-a_rg9axi.jpg",
         "category": "Accesorios",
         "color": "#196F3D",
         "size": "S al XXL",
-        "newIn": false
+        "newIn": true
     },
     {
-        "id": 11,
-        "name": "NECESER CHAIN",
-        "price": 3980,
-        "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875547/plants/batuk/accesorios%20/medias-batuk-007-2-a_rg9axi.jpg",
-        "category": "Accesorios",
-        "color": "#196F3D",
-        "size": "S al XXL",
-        "newIn": false
-    },
-    {
-        "id": 12,
+        "id": 3386,
         "name": "BOLSO CANVAS",
         "price": 8700,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875540/plants/batuk/accesorios%20/bag-bolso-batuk-a_caxivb.jpg",
@@ -120,7 +110,7 @@ export const MocukupDada = [
         "newIn": false
     },
     {
-        "id": 13,
+        "id": 3864,
         "name": "ANORAK SAINT",
         "price": 8300,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875613/plants/batuk/buzos/B-5097-b_tmmoo1.jpg",
@@ -130,7 +120,7 @@ export const MocukupDada = [
         "newIn": false
     },
     {
-        "id": 14,
+        "id": 7142,
         "name": "WEST",
         "price": 8980,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875614/plants/batuk/buzos/WVENTD_bekhj5.jpg",
@@ -140,7 +130,7 @@ export const MocukupDada = [
         "newIn": false
     },
     {
-        "id": 15,
+        "id": 1968,
         "name": "ANORAK MINT",
         "price": 8300,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875621/plants/batuk/buzos/anomed-1_xgmptu.jpg",
@@ -150,7 +140,7 @@ export const MocukupDada = [
         "newIn": false
     },
     {
-        "id": 16,
+        "id": 9274,
         "name": "SUN LIGHT",
         "price": 8300,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875614/plants/batuk/buzos/LIENT_zh3ekq.jpg",
@@ -160,7 +150,7 @@ export const MocukupDada = [
         "newIn": false
     },
     {
-        "id": 17,
+        "id": 6374,
         "name": "WINDOW",
         "price": 8300,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875616/plants/batuk/buzos/LILAENTT_xlevjs.jpg",
@@ -180,17 +170,17 @@ export const MocukupDada = [
         "newIn": false
     },
     {
-        "id": 19,
+        "id": 1292,
         "name": "CAMISACO SASHA",
         "price": 12580,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663955221/plants/batuk/campera/CAMENT_zofcmx.jpg",
         "category": "Camperas",
         "color": "#F6DDCC",
         "size": "S al XXL",
-        "newIn": false
+        "newIn": true
     },
     {
-        "id": 20,
+        "id": 1515,
         "name": "YELLOW",
         "price": 7960,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875691/plants/batuk/campera/AGUAAAENT_smzgpz.jpg",
@@ -200,7 +190,7 @@ export const MocukupDada = [
         "newIn": false
     },
     {
-        "id": 21,
+        "id": 2128,
         "name": "CALIFORNIA",
         "price": 7960,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875684/plants/batuk/campera/BORENT_qpz88g.jpg",
@@ -210,7 +200,7 @@ export const MocukupDada = [
         "newIn": false
     },
     {
-        "id": 21,
+        "id": 6956,
         "name": "MAEL",
         "price": 7960,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875650/plants/batuk/camisas/BLUMED_rchjwu.jpg",
@@ -220,7 +210,7 @@ export const MocukupDada = [
         "newIn": false
     },
     {
-        "id": 22,
+        "id": 6862,
         "name": "HANSKY",
         "price": 6780,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875642/plants/batuk/camisas/CUDRIENT_c4b9bh.jpg",
@@ -230,32 +220,23 @@ export const MocukupDada = [
         "newIn": false
     },
     {
-        "id": 23,
+        "id": 8161,
         "name": "KAMAT",
         "price": 6780,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875642/plants/batuk/camisas/CELEMED_lmtm4e.jpg",
         "category": "Camisas",
         "color": "#5DADE2",
         "size": "S al XXL",
-        "newIn": false
+        "newIn": true
     },
     {
-        "id": 24,
+        "id": 317,
         "name": "Ride",
         "price": 4580,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875766/plants/batuk/remeras-chombas/FVMED_nqeqqz.jpg",
         "category": "Remera",
         "color": "#ffff",
         "size": "S al XXL",
-        "newIn": true
-    },
-    {
-        "name": "name 25",
-        "price": false,
-        "img": "img 25",
-        "category": "category 25",
-        "size": "size 25",
-        "news": "news 25",
-        "id": "25"
+        "newIn": false
     }
 ]
