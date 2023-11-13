@@ -14,6 +14,7 @@ export default function NotFound() {
                 <p className="text-base my-4">La ruta que intentas acceder no existe</p>
                 <button onClick={() => router.back()}>
                     Volver
+                    
                 </button>
             </main>
         </>
