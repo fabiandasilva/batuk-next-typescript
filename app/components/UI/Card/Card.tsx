@@ -35,21 +35,21 @@ const Card = ({ img, name, color, price, id }: CardProps) => {
       <div className="mt-4 flex justify-between">
         <div>
           <h3 className="text-sm text-gray-700">
-            <Link href={`/store/${id}`}>
+            <Link href={`/store/detail/${id}`}>
               <span aria-hidden="true" className="absolute inset-0"></span>
               {name}
             </Link>
           </h3>
-          <div className="flex space-x-1 text-sm text-gray-500">
+          {/* <div className="flex space-x-1 text-sm text-gray-500">
             <div
               className="rounded-full w-5 h-5 border-black"
-              style={{ backgroundColor: color, border: "solid 1px black" }}
-            >              
+              style={{ backgroundColor: color, border: "solid 0.5px #CECECE" }}
+            >
               &nbsp;
             </div>
-          </div>
+          </div> */}
         </div>
-        <p className="text-sm font-medium text-gray-900"> 
+        <p className="text-sm font-medium text-gray-900">
           {formatPrice(price)}
         </p>
       </div>
