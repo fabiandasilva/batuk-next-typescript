@@ -40,14 +40,14 @@ const Card = ({ img, name, color, price, id }: CardProps) => {
               {name}
             </Link>
           </h3>
-          {/* <div className="flex space-x-1 text-sm text-gray-500">
+          <div className="flex space-x-1 text-sm text-gray-500">
             <div
               className="rounded-full w-5 h-5 border-black"
               style={{ backgroundColor: color, border: "solid 0.5px #CECECE" }}
             >
               &nbsp;
             </div>
-          </div> */}
+          </div>
         </div>
         <p className="text-sm font-medium text-gray-900">
           {formatPrice(price)}

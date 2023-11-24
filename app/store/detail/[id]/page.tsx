@@ -2,15 +2,18 @@ import ItemDetail from '@/app/components/itemDetail/ItemDetail';
 import { MocukupDada } from '@/app/data/Mockup';
 import React from 'react';
 
-interface Params {
-    params: any;
+interface ParamsType {
+    params: {
+        id: string;
+      };
 }
 
-export async function generateMetadata({ params }: Params) {
+export async function generateMetadata({ params }: ParamsType) {
     const { id } = params;
+
     const products = MocukupDada;
     const searchProductId = products.filter((product) => product.id === parseInt(id));
-    console.log('searchProductId', searchProductId);
+
 
     const nombreProducto = searchProductId[0].name;
     const nombreCategoria = searchProductId[0].category;
@@ -25,13 +28,16 @@ export async function generateMetadata({ params }: Params) {
 
 
 
-const Page = ({ params }: any) => {
+const Page = ({ params }: ParamsType) => {
     const { id } = params;
     console.log(id)
 
     const findProduct = MocukupDada;
     const searchProductId = findProduct.find((product) => product.id === parseInt(id));
-    console.log('searchProductId', searchProductId)
+
+    if (!searchProductId) {
+        return null;
+    }
 
     return (
         <section className='w-screen'>

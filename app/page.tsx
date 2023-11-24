@@ -1,3 +1,4 @@
+import React from 'react';
 import { Hero,  NewCollection, Novedades} from "@/app/components/index";
 
 
