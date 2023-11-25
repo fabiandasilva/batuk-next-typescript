@@ -13,7 +13,7 @@ const config: Config = {
         'desktop': '1024px',
       },
       fontFamily: {
-        'custom': ['Roboto', 'sans-serif'],
+        'custom': ['DINPRO', 'sans-serif'],
       },
       height: {
         '1/3': '13.33%',

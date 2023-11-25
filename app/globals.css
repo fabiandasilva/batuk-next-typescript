@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Roboto';
-  src: url('/public/font/bold.otf') format('opentype'); 
+  font-family: 'DINPRO';
+  src: url('/public/font/DINPro-Regular.woff2') format('opentype'); 
 }
 :root {
   --foreground: "#000000";
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  --font: "Roboto", sans-serif;
+  --font: "DINPRO", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {

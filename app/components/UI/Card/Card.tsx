@@ -5,12 +5,11 @@ import React from "react";
 interface CardProps {
   img: string;
   name: string;
-  color: string;
   price: number;
   id: number;
 }
 
-const Card = ({ img, name, color, price, id }: CardProps) => {
+const Card = ({ img, name, price, id }: CardProps) => {
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat("de-DE", {
@@ -39,15 +38,7 @@ const Card = ({ img, name, color, price, id }: CardProps) => {
               <span aria-hidden="true" className="absolute inset-0"></span>
               {name}
             </Link>
-          </h3>
-          <div className="flex space-x-1 text-sm text-gray-500">
-            <div
-              className="rounded-full w-5 h-5 border-black"
-              style={{ backgroundColor: color, border: "solid 0.5px #CECECE" }}
-            >
-              &nbsp;
-            </div>
-          </div>
+          </h3>          
         </div>
         <p className="text-sm font-medium text-gray-900">
           {formatPrice(price)}
