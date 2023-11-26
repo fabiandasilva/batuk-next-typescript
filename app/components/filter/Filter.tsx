@@ -2,29 +2,29 @@
 import React from 'react';
 
 interface FilterAsideProps {
-  getCategories: string;
-  getColors: [];
+  getCategories: [];
+  onCategorySelect: (category: string) => void;
+  selectedCategory: string;
 }
 
-const FilterAside = ({ getCategories, getColors }: FilterAsideProps) => {
+const FilterAside = ({ getCategories, onCategorySelect, selectedCategory }: FilterAsideProps) => {
 
   return (
     <aside className="filter">
       <div>
-        <span>Categorías</span>
+        <span className='text-lg bolder underline'>Categorías</span>
         <div id="categories" className="flex flex-col">
-          {getCategories}
+          {getCategories.map((category, index) => (
+            <span
+              className={`cursor-pointer ${selectedCategory === category ? 'font-bold' : ''}`}
+              key={index}
+              onClick={() => onCategorySelect(category)}
+            >
+              {category}
+            </span>
+
+          ))}
         </div>
-      </div>
-      <div className="filter__type">
-        <span>Color</span>
-        {getColors.map((color, index) => (
-          <div
-            key={index}
-            style={{ backgroundColor: color }}
-            className={`w-1 h-1  p-4 m-2 rounded-3xl border-2 border-gray-500 `}
-          ></div>
-        ))}
       </div>
     </aside>
   );
