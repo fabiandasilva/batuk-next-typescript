@@ -1,3 +1,4 @@
+import { useFormatPrice } from "@/app/utils/useFormatPrice";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -11,12 +12,7 @@ interface CardProps {
 
 const Card = ({ img, name, price, id }: CardProps) => {
 
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("de-DE", {
-      style: "currency",
-      currency: "ARS",
-    }).format(price);
-  };
+  const formattedPrice = useFormatPrice({ price });
 
   return (
     <div className="group relative">
@@ -41,7 +37,7 @@ const Card = ({ img, name, price, id }: CardProps) => {
           </h3>          
         </div>
         <p className="text-sm font-medium text-gray-900">
-          {formatPrice(price)}
+          {formattedPrice}
         </p>
       </div>
     </div>

@@ -2,13 +2,15 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { Shipping } from "@/public/index";
+import { useFormatPrice } from "@/app/utils/useFormatPrice";
+import ButtonCart from "../UI/buttonCart/ButtonCart";
 
 interface Product {
   name: string;
   category: string;
   img: string;
   color: [];
-  size: string;
+  size: [];
   price: number;
 }
 
@@ -19,6 +21,7 @@ interface ItemDetailProps {
 const ItemDetail: React.FC<ItemDetailProps> = ({ product }) => {
   const [selectedColor, setSelectedColor] = useState("");
 
+  const formattedPrice = useFormatPrice({ price: product.price });
   const handleColorChange = (color: string) => {
     setSelectedColor(color);
   };
@@ -37,13 +40,13 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ product }) => {
       <div className="ml-8 mt-11  w-[400px]">
         <form className="mt-5">
           <h1 className="text-2xl font-semibold tracking-tight text-gray-900 sm:text-xl uppercase ">
-            {product.category} {product.name}{" "}
+            {product.category} {product.name}
           </h1>
           <div className="mt-0">
-            <h3>${product.price}</h3>
+            <h3>{formattedPrice}</h3>
           </div>
           <hr className="mt-5" />
-          <h3 className="text-sm font-medium text-gray-900">
+          <h3 className="text-sm font-medium text-gray-900 mt-5">
             Seleccioná un color:
           </h3>
           <div className="flex">
@@ -59,17 +62,29 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ product }) => {
           </div>
           <hr className="mt-5" />
           <div className="mt-5">
-            <h3 className="text-sm font-medium text-gray-900">Talles</h3>
-            <div className="flex items-center ">
-              <span>{product.size}</span>
-            </div>
+            {product.size.length > 0 ? (
+              <>
+                <h3 className="text-sm font-medium text-gray-900 mb-2">Talles disponibles</h3>
+                <div className="flex items-center ">
+                  <select className="text-lg">
+                    {product.size.map((size, index) => (
+                      <option key={index} value={size} className="text-lg">
+                        {size}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </>
+            ) : (
+              <h3 className="text-md font-medium text-gray-900">Talle único</h3>
+            )}
+
+
+
           </div>
-          <button
-            type="submit"
-            className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-black px-4 py-3 text-sm uppercase font-medium text-white"
-          >
+          <ButtonCart>
             Agregar
-          </button>
+          </ButtonCart>
           <span>
             <p className="mt-5 text-sm font-medium text-gray-400 hover:underline">
               <a href="https://batukjeans.com.ar/envios-y-cambios/">

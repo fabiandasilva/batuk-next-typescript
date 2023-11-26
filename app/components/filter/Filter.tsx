@@ -1,27 +1,31 @@
+'use client'
 import React from 'react';
 
- 
+interface FilterAsideProps {
+  getCategories: string;
+  getColors: [];
+}
 
-const FilterAside = () => {
+const FilterAside = ({ getCategories, getColors }: FilterAsideProps) => {
+
   return (
     <aside className="filter">
-      <div className="filter__type">
-        <span>Categoría</span>
-        <div id="categories" className="filter__category">
-        &nbsp;
+      <div>
+        <span>Categorías</span>
+        <div id="categories" className="flex flex-col">
+          {getCategories}
         </div>
       </div>
       <div className="filter__type">
         <span>Color</span>
-        <div className="flex space-x-1 text-sm text-gray-500">
-            <div
-              className="rounded-full w-5 h-5 border-black flex-w"
-              style={{ backgroundColor: "#f5f5f5" , border: "solid 1px black" }}
-            >              
-              &nbsp;
-            </div>
-          </div>
-      </div>      
+        {getColors.map((color, index) => (
+          <div
+            key={index}
+            style={{ backgroundColor: color }}
+            className={`w-1 h-1  p-4 m-2 rounded-3xl border-2 border-gray-500 `}
+          ></div>
+        ))}
+      </div>
     </aside>
   );
 };
