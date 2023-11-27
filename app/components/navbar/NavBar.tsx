@@ -38,6 +38,8 @@ const NavBar = () => {
     }
   ];
 
+
+
   return (
     <>
       <header className='bg-white fixed w-full p-1 z-10'>

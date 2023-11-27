@@ -26,6 +26,7 @@ interface ItemDetailProps {
 
 const ItemDetail: React.FC<ItemDetailProps> = ({ product }) => {
   const [selectedColor, setSelectedColor] = useState("");
+  const [selectedSize, setSelectedSize] = useState("");
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
   const addToCart = useCartContext();
@@ -38,17 +39,19 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ product }) => {
     }
 
 
-    const cartItem = {
+
+    const newObjectCartItem = {
       ...product,
-      selectedColor,
-      quantity: selectedQuantity,
+      stock: product.stock - selectedQuantity,
+      color: selectedColor,
+      size: selectedSize,
     };
 
 
-    addToCart(cartItem);
+    addToCart(newObjectCartItem);
 
 
-    console.log("Carrito:", cartItem);
+
   };
 
   const formattedPrice = useFormatPrice({ price: product.price });
@@ -96,7 +99,7 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ product }) => {
               <>
                 <h3 className="text-sm font-medium text-gray-900 mb-2">Talles disponibles</h3>
                 <div className="flex items-center ">
-                  <select className="text-lg">
+                  <select className="text-lg" onChange={(e) => setSelectedSize((e.target as HTMLSelectElement).value)}>
                     {product.size.map((size, index) => (
                       <option key={index} value={size} className="text-lg">
                         {size}

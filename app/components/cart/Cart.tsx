@@ -6,7 +6,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import ButtonCart from '../UI/buttonCart/ButtonCart'
- 
+
 
 const products = [
   {
@@ -144,13 +144,13 @@ const CartList = ({ open, setOpen }: CartListProps) => {
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>
-                        
+
                           <button
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
                             onClick={() => setOpen(false)}
                           >
-                          Continuar comprando
+                            Continuar comprando
                             <span aria-hidden="true"> &rarr;</span>
                           </button>
                         </p>
