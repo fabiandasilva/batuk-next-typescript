@@ -2,7 +2,7 @@
 import React from 'react';
 
 interface FilterAsideProps {
-  getCategories: [];
+  getCategories: string[];
   onCategorySelect: (category: string) => void;
   selectedCategory: string;
 }

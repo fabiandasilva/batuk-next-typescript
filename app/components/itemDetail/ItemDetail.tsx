@@ -4,6 +4,10 @@ import React, { useState } from "react";
 import { Shipping } from "@/public/index";
 import { useFormatPrice } from "@/app/utils/useFormatPrice";
 import ButtonCart from "../UI/buttonCart/ButtonCart";
+import { useCartContext } from "@/app/context/CartContex";
+
+
+
 
 interface Product {
   name: string;
@@ -12,14 +16,40 @@ interface Product {
   color: [];
   size: [];
   price: number;
+  stock: number;
 }
 
 interface ItemDetailProps {
   product: Product;
 }
 
+
 const ItemDetail: React.FC<ItemDetailProps> = ({ product }) => {
   const [selectedColor, setSelectedColor] = useState("");
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
+
+  const addToCart = useCartContext();
+
+
+  const handleAddToCart = () => {
+    if (selectedColor === "") {
+      console.error("Por favor, selecciona un color antes de agregar al carrito.");
+      return;
+    }
+
+
+    const cartItem = {
+      ...product,
+      selectedColor,
+      quantity: selectedQuantity,
+    };
+
+
+    addToCart(cartItem);
+
+
+    console.log("Carrito:", cartItem);
+  };
 
   const formattedPrice = useFormatPrice({ price: product.price });
   const handleColorChange = (color: string) => {
@@ -38,7 +68,7 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ product }) => {
         />
       </div>
       <div className="ml-8 mt-11  w-[400px]">
-        <form className="mt-5">
+        <div className="mt-5">
           <h1 className="text-2xl font-semibold tracking-tight text-gray-900 sm:text-xl uppercase ">
             {product.category} {product.name}
           </h1>
@@ -79,10 +109,24 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ product }) => {
               <h3 className="text-md font-medium text-gray-900">Talle único</h3>
             )}
 
-
+            <h3 className="text-sm font-medium text-gray-900 mt-5">
+              Cantidad
+            </h3>
+            <div className="flex items-center ">
+              <select className="text-lg"
+                onChange={(e) => setSelectedQuantity(Number(e.target.value))}>
+                {[...Array(product.stock).keys()].map((_, index) => (
+                  <option key={index} value={index + 1} className="text-lg">
+                    {index + 1}
+                  </option>
+                ))}
+              </select>
+            </div>
 
           </div>
-          <ButtonCart>
+          <ButtonCart
+            onClick={handleAddToCart}
+          >
             Agregar
           </ButtonCart>
           <span>
@@ -104,7 +148,7 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ product }) => {
             alt="Mercado Pago"
             className="h-auto w-auto object-cover object-center mt-7"
           />
-        </form>
+        </div>
       </div>
     </div>
   );

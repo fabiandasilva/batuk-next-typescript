@@ -7,7 +7,8 @@ export const MocukupDada = [
         "category": "Remera",
         "color": ["#ffff", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "L", "XL", "XXL"],
-        "newIn": false
+        "newIn": false,
+        "stock": 10
     },
     {
         "id": 6761,
@@ -17,7 +18,8 @@ export const MocukupDada = [
         "category": "Remera",
         "color": ["#2471A3", "#F1C40F", "#F6DDCC"],
         "size": ["S", "L", "XL", "XXL"],
-        "newIn": false
+        "newIn": false,
+        "stock": 5
     },
     {
         "id": 5043,
@@ -27,7 +29,8 @@ export const MocukupDada = [
         "category": "Remera",
         "color": ["#5B2C6F", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "L", "XXL"],
-        "newIn": false
+        "newIn": false,
+        "stock": 10
     },
     {
         "id": 9981,
@@ -37,7 +40,8 @@ export const MocukupDada = [
         "category": "Remera",
         "color": ["#17202A", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "L", "XL",],
-        "newIn": false
+        "newIn": false,
+        "stock": 10
     },
     {
         "id": 4909,
@@ -47,7 +51,8 @@ export const MocukupDada = [
         "category": "Remera",
         "color": ["#ffff", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "L", "XL", "XXL"],
-        "newIn": false
+        "newIn": false,
+        "stock": 10
     },
     {
         "id": 3091,
@@ -57,7 +62,8 @@ export const MocukupDada = [
         "category": "Remera",
         "color": ["#ffff", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "XL", "XXL"],
-        "newIn": true
+        "newIn": true,
+        "stock": 10
     },
     {
         "id": 1849,
@@ -67,7 +73,8 @@ export const MocukupDada = [
         "category": "Accesorios",
         "color": ["#E74C3C", "#F1C40F", "#F6DDCC"],
         "size": [],
-        "newIn": false
+        "newIn": false,
+        "stock": 10
     },
     {
         "id": 2040,
@@ -77,7 +84,8 @@ export const MocukupDada = [
         "category": "Accesorios",
         "color": ["#17202A", "#F1C40F", "#F6DDCC"],
         "size": [],
-        "newIn": false
+        "newIn": false,
+        "stock": 10
     },
     {
         "id": 2065,
@@ -87,7 +95,8 @@ export const MocukupDada = [
         "category": "Accesorios",
         "color": ["#873600", "#F1C40F", "#F6DDCC"],
         "size": [],
-        "newIn": false
+        "newIn": false,
+        "stock": 10
     },
     {
         "id": 4581,
@@ -97,7 +106,8 @@ export const MocukupDada = [
         "category": "Accesorios",
         "color": ["#196F3D", "#F1C40F", "#F6DDCC"],
         "size": [],
-        "newIn": true
+        "newIn": true,
+        "stock": 10
     },
     {
         "id": 3386,
@@ -107,7 +117,8 @@ export const MocukupDada = [
         "category": "Accesorios",
         "color": ["#2471A3", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "L", "XXL"],
-        "newIn": false
+        "newIn": false,
+        "stock": 10
     },
     {
         "id": 3864,
@@ -117,7 +128,8 @@ export const MocukupDada = [
         "category": "Buzos",
         "color": ["#5DADE2", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "L", "XL"],
-        "newIn": false
+        "newIn": false,
+        "stock": 10
     },
     {
         "id": 7142,
@@ -127,7 +139,8 @@ export const MocukupDada = [
         "category": "Buzos",
         "color": ["#F1C40F", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "L", "XXL"],
-        "newIn": false
+        "newIn": false,
+        "stock": 10
     },
     {
         "id": 1968,
@@ -137,7 +150,8 @@ export const MocukupDada = [
         "category": "Buzos",
         "color": ["#5DADE2", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "XL", "XXL"],
-        "newIn": false
+        "newIn": false,
+        "stock": 10
     },
     {
         "id": 9274,
@@ -147,7 +161,8 @@ export const MocukupDada = [
         "category": "Buzos",
         "color": ["#2471A3", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "L", "XL",],
-        "newIn": false
+        "newIn": false,
+        "stock": 10
     },
     {
         "id": 6374,
@@ -157,7 +172,8 @@ export const MocukupDada = [
         "category": "Buzos",
         "color": ["#F6DDCC", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "L", "XXL"],
-        "newIn": false
+        "newIn": false,
+        "stock": 10
     },
     {
         "id": 18,
@@ -167,7 +183,8 @@ export const MocukupDada = [
         "category": "Buzos",
         "color": ["#F6DDCC", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "L", "XL",],
-        "newIn": false
+        "newIn": false,
+        "stock": 10
     },
     {
         "id": 1292,
@@ -177,7 +194,8 @@ export const MocukupDada = [
         "category": "Camperas",
         "color": ["#F6DDCC", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "L", "XL", "XXL"],
-        "newIn": true
+        "newIn": true,
+        "stock": 10
     },
     {
         "id": 1515,
@@ -187,7 +205,8 @@ export const MocukupDada = [
         "category": "Camperas",
         "color": ["#5DADE2", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "L", "XL", "XXL"],
-        "newIn": false
+        "newIn": false, 
+        "stock": 10
     },
     {
         "id": 2128,
@@ -197,7 +216,8 @@ export const MocukupDada = [
         "category": "Camperas",
         "color": ["#E74C3C", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "L", "XL", "XXL"],
-        "newIn": false
+        "newIn": false,
+        "stock": 10
     },
     {
         "id": 6956,
@@ -207,7 +227,8 @@ export const MocukupDada = [
         "category": "Camisas",
         "color": ["#2471A3", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "L", "XL", "XXL"],
-        "newIn": false
+        "newIn": false,
+        "stock": 10
     },
     {
         "id": 6862,
@@ -217,7 +238,8 @@ export const MocukupDada = [
         "category": "Camisas",
         "color": ["#2471A3", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "L", "XL", "XXL"],
-        "newIn": false
+        "newIn": false,
+        "stock": 10
     },
     {
         "id": 8161,
@@ -227,7 +249,8 @@ export const MocukupDada = [
         "category": "Camisas",
         "color": ["#5DADE2", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "XL", "XXL"],
-        "newIn": true
+        "newIn": true,
+        "stock": 10
     },
     {
         "id": 317,
@@ -237,6 +260,7 @@ export const MocukupDada = [
         "category": "Remera",
         "color": ["#ffff", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "L", "XL", "XXL"],
-        "newIn": false
+        "newIn": false,
+        "stock": 10
     }
 ]
