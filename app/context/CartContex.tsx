@@ -27,7 +27,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     const [cart, setCart] = useState<Product[]>([]);
     /*  console.log("Carrito", cart.length)
     */
-     console.table(cart)
+    console.table(cart)
 
 
 
@@ -40,7 +40,13 @@ export const CartProvider = ({ children }: CartProviderProps) => {
             const updatedCart = [...prevCart];
             const itemIndex = updatedCart.findIndex(cartItem => cartItem.id === item.id && cartItem.size === item.size && cartItem.color === item.color);
             if (itemIndex !== -1) {
-                updatedCart[itemIndex].stock -= 1;
+
+                if (updatedCart[itemIndex].stock > 0) {
+                    updatedCart[itemIndex].stock -= 1;
+                } else {
+
+                    console.error('No hay suficiente stock');
+                }
             }
             return updatedCart;
         });

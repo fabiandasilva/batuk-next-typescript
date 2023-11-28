@@ -37,30 +37,24 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ product }) => {
 
 
   const handleAddToCart = () => {
-    if (selectedColor === "") {
-      console.error("Por favor, selecciona un color antes de agregar al carrito.");
-      return;
+    if (selectedQuantity <= (stock[product.id] || product.stock)) {
+      const newObjectCartItem = {
+        ...product,
+        id: `${product.id}-${selectedColor}-${selectedSize}`,
+        stock: product.stock - selectedQuantity,
+        cantidad: selectedQuantity,
+        color: selectedColor,
+        size: selectedSize,
+      };
+      setStock(prevStock => ({
+        ...prevStock,
+        [product.id]: (prevStock[product.id] || product.stock) - selectedQuantity
+      }));
+
+      addToCart(newObjectCartItem);
+    } else {
+      console.error('No hay suficiente stock');
     }
-
-
-
-    const newObjectCartItem = {
-      ...product,
-      id: `${product.id}-${selectedColor}-${selectedSize}`,
-      cantidad: selectedQuantity,
-      color: selectedColor,
-      size: selectedSize,
-      stock: product.stock - selectedQuantity,
-    };
-    setStock(prevStock => ({
-      ...prevStock,
-      [product.id]: (prevStock[product.id] || product.stock) - selectedQuantity
-    }));
-
-    addToCart(newObjectCartItem) as CartContextType;;
-
-
-
   };
 
   const formattedPrice = useFormatPrice({ price: product.price });
@@ -120,18 +114,20 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ product }) => {
             ) : (
               <h3 className="text-md font-medium text-gray-900">Talle único</h3>
             )}
-
             <h3 className="text-sm font-medium text-gray-900 mt-5">
               Cantidad
             </h3>
-            {stock[product.id] <= 0 ? (
+            {stock[product.id] <= 1 ? (
               <p className="text-sm font-medium text-gray-900 mt-5">
                 Sin stock
               </p>
             ) : (
-              <div className="flex items-center ">
-                <select className="text-lg"
-                  onChange={(e) => setSelectedQuantity(Number(e.target.value))}>
+
+              <div className="flex items-center">
+                <select
+                  className="text-lg"
+                  onChange={(e) => setSelectedQuantity(Number(e.target.value))}
+                >
                   {[...Array(Math.max(0, stock[product.id] || product.stock)).keys()].map((_, index) => (
                     <option key={index} value={index + 1} className="text-lg">
                       {index + 1}
@@ -141,13 +137,25 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ product }) => {
               </div>
             )}
 
-
           </div>
-          <ButtonCart
-            onClick={handleAddToCart}
-          >
-            Agregar
-          </ButtonCart>
+          {stock[product.id] <= 1 ? (
+            <ButtonCart
+              onClick={handleAddToCart}
+              disabled={true}
+            >
+              Agregar
+            </ButtonCart>
+          ) : (
+            <ButtonCart
+              onClick={handleAddToCart}
+
+            >
+              Agregar
+            </ButtonCart>
+          )
+
+
+          }
           <span>
             <p className="mt-5 text-sm font-medium text-gray-400 hover:underline">
               <a href="https://batukjeans.com.ar/envios-y-cambios/">
