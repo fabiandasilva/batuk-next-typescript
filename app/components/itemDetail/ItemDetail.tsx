@@ -23,13 +23,16 @@ interface ItemDetailProps {
   product: Product;
 }
 
-
+interface CartContextType {
+  addToCart: (product: Product) => void;
+  // otras propiedades del contexto...
+}
 const ItemDetail: React.FC<ItemDetailProps> = ({ product }) => {
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
-  const addToCart = useCartContext();
+  const {addToCart} = useCartContext();
 
 
   const handleAddToCart = () => {
@@ -48,7 +51,7 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ product }) => {
     };
 
 
-    addToCart(newObjectCartItem);
+    addToCart(newObjectCartItem) as CartContextType;;
 
 
 
@@ -70,7 +73,7 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ product }) => {
           className="h-auto w-auto object-cover object-center"
         />
       </div>
-      <div className="ml-8 mt-11  w-[400px]">
+      <div className="ml-8 mt-0  w-[400px]">
         <div className="mt-5">
           <h1 className="text-2xl font-semibold tracking-tight text-gray-900 sm:text-xl uppercase ">
             {product.category} {product.name}

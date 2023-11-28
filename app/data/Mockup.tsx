@@ -5,7 +5,7 @@ export const MocukupDada = [
         "price": 4580,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875764/plants/batuk/remeras-chombas/COTEENT_yyckaw.jpg",
         "category": "Remera",
-        "color": ["#ffff", "#F1C40F", "#F6DDCC"],
+        "color": ["#e2decf", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "L", "XL", "XXL"],
         "newIn": false,
         "stock": 10
@@ -49,7 +49,7 @@ export const MocukupDada = [
         "price": 4580,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875764/plants/batuk/remeras-chombas/FRESHMED-1_vanwru.jpg",
         "category": "Remera",
-        "color": ["#ffff", "#F1C40F", "#F6DDCC"],
+        "color": ["#e2decf", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "L", "XL", "XXL"],
         "newIn": false,
         "stock": 10
@@ -60,7 +60,7 @@ export const MocukupDada = [
         "price": 4580,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875763/plants/batuk/remeras-chombas/CERAENT_ungqkb.jpg",
         "category": "Remera",
-        "color": ["#ffff", "#F1C40F", "#F6DDCC"],
+        "color": ["#e2decf", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "XL", "XXL"],
         "newIn": true,
         "stock": 10
@@ -258,7 +258,7 @@ export const MocukupDada = [
         "price": 4580,
         "img": "https://res.cloudinary.com/dew1za4wz/image/upload/v1663875766/plants/batuk/remeras-chombas/FVMED_nqeqqz.jpg",
         "category": "Remera",
-        "color": ["#ffff", "#F1C40F", "#F6DDCC"],
+        "color": ["#e2decf", "#F1C40F", "#F6DDCC"],
         "size": ["S", "M", "L", "XL", "XXL"],
         "newIn": false,
         "stock": 10
