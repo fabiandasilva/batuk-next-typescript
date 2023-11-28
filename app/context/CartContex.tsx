@@ -1,4 +1,5 @@
 'use client'
+import { table } from 'console';
 import React, { createContext, useContext, useState } from 'react'
 
 const CartContext = createContext<CartContextType | null>(null);
@@ -9,6 +10,7 @@ interface Product {
     id: string;
     size: string;
     color: string;
+    stock: number;
 
 }
 interface CartContextType {
@@ -24,14 +26,26 @@ export const CartProvider = ({ children }: CartProviderProps) => {
 
     const [cart, setCart] = useState<Product[]>([]);
     /*  console.log("Carrito", cart.length)
-     console.log("Carrito", cart) */
+    */
+     console.table(cart)
+
 
 
     const addToCart = (item: Product) => {
         if (!cart.some(cartItem => cartItem.id === item.id && cartItem.size === item.size && cartItem.color === item.color)) {
             setCart([...cart, item]);
         }
+
+        setCart(prevCart => {
+            const updatedCart = [...prevCart];
+            const itemIndex = updatedCart.findIndex(cartItem => cartItem.id === item.id && cartItem.size === item.size && cartItem.color === item.color);
+            if (itemIndex !== -1) {
+                updatedCart[itemIndex].stock -= 1;
+            }
+            return updatedCart;
+        });
     };
+
 
     const removeItem = (itemId: string) => {
         setCart(cart.filter(item => item.id !== itemId))

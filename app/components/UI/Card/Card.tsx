@@ -20,7 +20,7 @@ const Card = ({ img, name, price, id }: CardProps) => {
         <Image
           src={img}
           alt="Batuk new collection"
-          objectFit="contain"
+          
           objectPosition="center"
           className="h-full w-full object-cover object-center lg:h-full lg:w-full"
           width="200"

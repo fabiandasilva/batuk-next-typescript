@@ -19,7 +19,7 @@ interface CartListProps {
 const CartList = ({ open, setOpen }: CartListProps) => {
 
 
-  const { cart } = useCartContext();
+  const { cart, removeItem } = useCartContext();
 
 
 
@@ -100,12 +100,13 @@ const CartList = ({ open, setOpen }: CartListProps) => {
                                         className={`w-10 h-4 p-0 m-0   border-2 border-gray-500`}></div></p>
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
-                                    <p className="text-gray-500">Cantidad {product.stock}</p>
+                                    <p className="text-gray-500">Cantidad {product.cantidad}</p>
 
                                     <div className="flex">
                                       <button
                                         type="button"
                                         className="font-medium text-indigo-600 hover:text-indigo-500"
+                                        onClick={() => removeItem(product.id)}
                                       >
                                         Eliminar
                                       </button>

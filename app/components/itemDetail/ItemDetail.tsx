@@ -17,6 +17,7 @@ interface Product {
   size: [];
   price: number;
   stock: number;
+  id: string;
 }
 
 interface ItemDetailProps {
@@ -25,14 +26,14 @@ interface ItemDetailProps {
 
 interface CartContextType {
   addToCart: (product: Product) => void;
-  // otras propiedades del contexto...
 }
 const ItemDetail: React.FC<ItemDetailProps> = ({ product }) => {
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedQuantity, setSelectedQuantity] = useState(1);
+  const [stock, setStock] = useState({});
 
-  const {addToCart} = useCartContext();
+  const { addToCart } = useCartContext();
 
 
   const handleAddToCart = () => {
@@ -45,11 +46,16 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ product }) => {
 
     const newObjectCartItem = {
       ...product,
-      stock: product.stock - selectedQuantity,
+      id: `${product.id}-${selectedColor}-${selectedSize}`,
+      cantidad: selectedQuantity,
       color: selectedColor,
       size: selectedSize,
+      stock: product.stock - selectedQuantity,
     };
-
+    setStock(prevStock => ({
+      ...prevStock,
+      [product.id]: (prevStock[product.id] || product.stock) - selectedQuantity
+    }));
 
     addToCart(newObjectCartItem) as CartContextType;;
 
@@ -70,7 +76,7 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ product }) => {
           height={300}
           src={product.img}
           alt={`${product.category}-${product.name}`}
-          className="h-auto w-auto object-cover object-center"
+          className="h-auto w-auto "
         />
       </div>
       <div className="ml-8 mt-0  w-[400px]">
@@ -118,16 +124,23 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ product }) => {
             <h3 className="text-sm font-medium text-gray-900 mt-5">
               Cantidad
             </h3>
-            <div className="flex items-center ">
-              <select className="text-lg"
-                onChange={(e) => setSelectedQuantity(Number(e.target.value))}>
-                {[...Array(product.stock).keys()].map((_, index) => (
-                  <option key={index} value={index + 1} className="text-lg">
-                    {index + 1}
-                  </option>
-                ))}
-              </select>
-            </div>
+            {stock[product.id] <= 0 ? (
+              <p className="text-sm font-medium text-gray-900 mt-5">
+                Sin stock
+              </p>
+            ) : (
+              <div className="flex items-center ">
+                <select className="text-lg"
+                  onChange={(e) => setSelectedQuantity(Number(e.target.value))}>
+                  {[...Array(Math.max(0, stock[product.id] || product.stock)).keys()].map((_, index) => (
+                    <option key={index} value={index + 1} className="text-lg">
+                      {index + 1}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+
 
           </div>
           <ButtonCart

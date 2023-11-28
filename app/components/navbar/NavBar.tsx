@@ -13,7 +13,7 @@ interface Path {
 }
 
 const NavBar = () => {
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
   const toggle = () => {
     setOpen(!open);
   };
