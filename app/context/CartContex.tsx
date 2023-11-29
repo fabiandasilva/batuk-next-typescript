@@ -11,6 +11,7 @@ interface Product {
     size: string;
     color: string;
     stock: number;
+    price: number;
 
 }
 interface CartContextType {
@@ -51,6 +52,9 @@ export const CartProvider = ({ children }: CartProviderProps) => {
             return updatedCart;
         });
     };
+const getTotalPrice = () => {
+    return cart.reduce((acc, item) => acc + item.price, 0)
+}
 
 
     const removeItem = (itemId: string) => {
@@ -60,7 +64,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     const value: CartContextType = {
         cart,
         addToCart,
-        removeItem
+        removeItem,        
     }
 
 
