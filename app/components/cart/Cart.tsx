@@ -6,8 +6,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import ButtonCart from '../UI/buttonCart/ButtonCart'
-import { useCartContext } from '@/app/context/CartContex'
-import { useFormatPrice } from '@/app/utils/useFormatPrice'
+import { useCartContext } from '@/app/context/CartContex' 
 
 
 
@@ -125,11 +124,10 @@ const CartList = ({ open, setOpen }: CartListProps) => {
 
                     <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                       <div className="flex justify-between text-base font-medium text-gray-900">
-                        <p>Total</p>
-                     <p>
-                                ${getTotalPrice()}
 
-                     </p>
+                        {cart.length > 0 ? <> <p>Total</p>
+                          <p>${getTotalPrice()}</p></> : ""}
+
                       </div>
 
                       <div className="mt-6">

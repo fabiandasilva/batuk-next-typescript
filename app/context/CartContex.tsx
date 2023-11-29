@@ -1,6 +1,5 @@
 'use client'
-import { table } from 'console';
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 
 const CartContext = createContext<CartContextType | null>(null);
 
@@ -11,24 +10,36 @@ interface Product {
     size: string;
     color: string;
     stock: number;
-    price: number;
-
+    price: number; 
 }
+
 interface CartContextType {
     cart: Product[];
     addToCart: (item: Product) => void;
     removeItem: (itemId: string) => void;
+    products: Product[];
 }
 interface CartProviderProps {
     children: React.ReactNode;
 }
 
 export const CartProvider = ({ children }: CartProviderProps) => {
-
+    const [products, setProducts] = useState([]);
     const [cart, setCart] = useState<Product[]>([]);
     /*  console.log("Carrito", cart.length)
     */
     console.table(cart)
+
+    const getProduct = async () => {
+        const res = await fetch('http://localhost:3000/api/products',        
+        {cache: "no-store"});
+        const data = await res.json();
+        setProducts(data);
+    };
+    
+    useEffect(() => {
+        getProduct();
+    }, []);
 
 
 
@@ -44,6 +55,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
 
                 if (updatedCart[itemIndex].stock > 0) {
                     updatedCart[itemIndex].stock -= 1;
+
                 } else {
 
                     console.error('No hay suficiente stock');
@@ -51,10 +63,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
             }
             return updatedCart;
         });
-    };
-const getTotalPrice = () => {
-    return cart.reduce((acc, item) => acc + item.price, 0)
-}
+    };  
 
 
     const removeItem = (itemId: string) => {
@@ -64,7 +73,8 @@ const getTotalPrice = () => {
     const value: CartContextType = {
         cart,
         addToCart,
-        removeItem,        
+        removeItem,
+        products
     }
 
 
