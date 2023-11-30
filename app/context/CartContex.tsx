@@ -10,7 +10,7 @@ interface Product {
     size: string;
     color: string;
     stock: number;
-    price: number; 
+    price: number;
 }
 
 interface CartContextType {
@@ -26,17 +26,25 @@ interface CartProviderProps {
 export const CartProvider = ({ children }: CartProviderProps) => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState<Product[]>([]);
-    /*  console.log("Carrito", cart.length)
-    */
-    console.table(cart)
+    /*  console.log("Carrito", cart.length)*/
+
+
+    useEffect(() => {
+        const cart = localStorage.getItem('cart');
+        if (cart) {
+            setCart(JSON.parse(cart));
+        }
+    }, []);
+
+
 
     const getProduct = async () => {
-        const res = await fetch('http://localhost:3000/api/products',        
-        {cache: "no-store"});
+        const res = await fetch('http://localhost:3000/api/products',
+            { cache: "no-store" });
         const data = await res.json();
         setProducts(data);
     };
-    
+
     useEffect(() => {
         getProduct();
     }, []);
@@ -50,6 +58,8 @@ export const CartProvider = ({ children }: CartProviderProps) => {
 
         setCart(prevCart => {
             const updatedCart = [...prevCart];
+
+            localStorage.setItem('cart', JSON.stringify(updatedCart));
             const itemIndex = updatedCart.findIndex(cartItem => cartItem.id === item.id && cartItem.size === item.size && cartItem.color === item.color);
             if (itemIndex !== -1) {
 
@@ -63,11 +73,13 @@ export const CartProvider = ({ children }: CartProviderProps) => {
             }
             return updatedCart;
         });
-    };  
+    };
 
 
     const removeItem = (itemId: string) => {
         setCart(cart.filter(item => item.id !== itemId))
+        localStorage.setItem('cart', JSON.stringify(cart.filter(item => item.id !== itemId)));
+
     }
 
     const value: CartContextType = {

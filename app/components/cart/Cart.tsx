@@ -6,7 +6,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import ButtonCart from '../UI/buttonCart/ButtonCart'
-import { useCartContext } from '@/app/context/CartContex' 
+import { useCartContext } from '@/app/context/CartContex'
 
 
 
@@ -89,7 +89,7 @@ const CartList = ({ open, setOpen }: CartListProps) => {
                                   <div>
                                     <div className="flex justify-between text-base font-medium text-gray-900">
                                       <h3 className='uppercase font-semibold'>
-                                        <a href={`/store/detail/${product.id}`}>{product.category} {product.name}</a>
+                                        {product.category} {product.name}
                                       </h3>
                                       <p className="ml-4">
                                         ${product.price}
