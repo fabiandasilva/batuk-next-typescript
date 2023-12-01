@@ -84,6 +84,7 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ product }) => {
           <hr className="mt-5" />
           <h3 className="text-sm font-medium text-gray-900 mt-5">
             Seleccioná un color:
+            {!selectedColor ? " (requerido)" : ""}
           </h3>
           <div className="flex">
             {product.color.map((color, index) => (

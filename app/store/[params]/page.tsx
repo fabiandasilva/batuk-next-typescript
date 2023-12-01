@@ -1,4 +1,4 @@
-import { MocukupDada } from '@/app/data/Mockup'
+import { MockupData } from '@/app/data/Mockup'
 import React from 'react'
 
 interface ParamsType{
@@ -10,7 +10,7 @@ interface ParamsType{
 export async function generateMetadata({ params }: ParamsType) {
 
 
-  const products = MocukupDada;
+  const products = MockupData;
 
 
   const targetProductId = parseInt(params.params, 10);

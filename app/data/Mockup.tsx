@@ -1,4 +1,4 @@
-export const MocukupDada = [
+export const MockupData = [
     {
         "id": 6323,
         "name": "COTE",

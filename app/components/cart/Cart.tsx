@@ -15,13 +15,27 @@ interface CartListProps {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+interface ProductType {
+  id: string;
+  name: string;
+  category: string;
+  img: string;
+  color: string;
+  size: string;
+  price: number;
+  stock: number;
+  cantidad: number;
+}
+
 const CartList = ({ open, setOpen }: CartListProps) => {
 
 
   const { cart, removeItem } = useCartContext();
 
+
+
   const getTotalPrice = () => {
-    return cart.reduce((acc, item) => acc + item.price * item.cantidad, 0)
+    return cart.reduce((acc: number, item: { price: number; cantidad: number }) => acc + item.price * item.cantidad, 0)
   }
 
 
@@ -73,7 +87,8 @@ const CartList = ({ open, setOpen }: CartListProps) => {
                       <div className="mt-8">
                         <div className="flow-root">
                           <ul role="list" className="-my-6 divide-y divide-gray-200">
-                            {cart.map((product) => (
+                            {!cart.length && <p className="text-center">No hay productos en el carrito</p>}
+                            {cart.map((product: ProductType) => (
                               <li key={product.id} className="flex py-6">
                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                   <Image
@@ -131,7 +146,7 @@ const CartList = ({ open, setOpen }: CartListProps) => {
                       </div>
 
                       <div className="mt-6">
-                        <ButtonCart>
+                        <ButtonCart onClick={() => { }}>
                           Finalizar compra
                         </ButtonCart>
                       </div>

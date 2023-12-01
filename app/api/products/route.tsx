@@ -1,7 +1,7 @@
-import { MocukupDada } from "@/app/data/Mockup";
+import { MockupData } from "@/app/data/Mockup";
 import { NextResponse } from "next/server";
 
-const sleep = (timer) => {
+const sleep = (timer: number | undefined) => {
     return new Promise((resolve) => setTimeout(resolve, timer));
 }
 
@@ -9,5 +9,5 @@ const sleep = (timer) => {
 export async function GET() {
 
     await sleep(1000);
-    return NextResponse.json(MocukupDada)
+    return NextResponse.json(MockupData)
 }

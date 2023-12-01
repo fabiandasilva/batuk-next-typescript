@@ -5,7 +5,7 @@ import { useCartContext } from './context/CartContex';
 
 
 const page = () => {
-    /*    const products = MocukupDada; */
+    /*    const products = MockupData; */
 
     const { products } = useCartContext();
 

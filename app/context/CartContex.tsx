@@ -5,6 +5,7 @@ const CartContext = createContext<CartContextType | null>(null);
 
 export const useCartContext = () => useContext(CartContext)
 
+
 interface Product {
     id: string;
     size: string;

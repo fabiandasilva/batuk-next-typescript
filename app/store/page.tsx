@@ -6,7 +6,7 @@ import { useCartContext } from "../context/CartContex";
 
 const Page = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
-  /* const productos = MocukupDada; */
+  /* const productos = MockupData; */
 
   const { products } = useCartContext();
 

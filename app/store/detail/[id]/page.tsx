@@ -1,6 +1,6 @@
 import { Novedades } from '@/app/components';
 import ItemDetail from '@/app/components/itemDetail/ItemDetail';
-import { MocukupDada } from '@/app/data/Mockup';
+import { MockupData } from '@/app/data/Mockup';
 import React from 'react';
 
 interface ParamsType {
@@ -12,7 +12,7 @@ interface ParamsType {
 export async function generateMetadata({ params }: ParamsType) {
     const { id } = params;
 
-    const products = MocukupDada;
+    const products = MockupData;
     const searchProductId = products.filter((product) => product.id === parseInt(id));
 
 
@@ -33,7 +33,7 @@ const Page = ({ params }: ParamsType) => {
     const { id } = params;
     console.log(id)
 
-    const findProduct = MocukupDada;
+    const findProduct = MockupData;
     const searchProductId = findProduct.find((product) => product.id === parseInt(id));
     const renderProductWhitCategory = findProduct.filter((product) => product.category === searchProductId?.category).slice(0, 4)
 
