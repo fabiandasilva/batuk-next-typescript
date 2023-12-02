@@ -1,28 +1,33 @@
 'use client'
-import React from 'react';
+import Link from 'next/link';
+import React, { useState } from 'react';
 
-interface FilterAsideProps {
-  getCategories: string[];
-  onCategorySelect: (category: string) => void;
-  selectedCategory: string;
-}
+const FilterAside = () => {
+  const [selectedCategory, setSelectedCategory] = useState("");
 
-const FilterAside = ({ getCategories, onCategorySelect, selectedCategory }: FilterAsideProps) => {
+  const categories = [
+    "Remera",
+    "Accesorios",
+    "Buzos",
+    "Camperas",
+    "Camisas"
+  ]
 
   return (
     <aside className="filter">
       <div>
         <span className='text-lg bolder underline'>Categorías</span>
         <div id="categories" className="flex flex-col">
-          {getCategories.map((category, index) => (
-            <span
-              className={`cursor-pointer ${selectedCategory === category ? 'font-bold' : ''}`}
-              key={index}
-              onClick={() => onCategorySelect(category)}
-            >
-              {category}
-            </span>
-
+          {categories.map((category, index) => (
+            <Link href={`/store/${category}`} key={index}>
+              <span
+                className={`cursor-pointer capitalize ${selectedCategory === category ? 'font-bold' : ''}`}
+                key={index}
+                onClick={() => setSelectedCategory(category)}
+              >
+                {category}
+              </span>
+            </Link>
           ))}
         </div>
       </div>

@@ -12,13 +12,18 @@ interface ParamsType {
 export async function generateMetadata({ params }: ParamsType) {
     const { id } = params;
 
-    const products = MockupData;
-    const searchProductId = products.filter((product) => product.id === parseInt(id));
+    const getProducts = await fetch(`http://localhost:3000/api/products/`, {
+        cache: 'no-store'
+    })
+    const findProduct = await getProducts.json()
 
 
-    const nombreProducto = searchProductId[0].name;
-    const nombreCategoria = searchProductId[0].category;
-    const productDetail = searchProductId[0];
+    const searchProductId = findProduct.find((product) => product.id === parseInt(id));
+
+
+    const nombreProducto = searchProductId.name;
+    const nombreCategoria = searchProductId.category;
+    const productDetail = searchProductId;
 
     return {
         title: `${nombreCategoria} | ${nombreProducto}`,
@@ -29,12 +34,16 @@ export async function generateMetadata({ params }: ParamsType) {
 
 
 
-const Page = ({ params }: ParamsType) => {
+const Page = async ({ params }: ParamsType) => {
     const { id } = params;
-    console.log(id)
 
-    const findProduct = MockupData;
+    const getProducts = await fetch(`http://localhost:3000/api/products/`, {
+        cache: 'no-store'
+    })
+    const findProduct = await getProducts.json()
+
     const searchProductId = findProduct.find((product) => product.id === parseInt(id));
+
     const renderProductWhitCategory = findProduct.filter((product) => product.category === searchProductId?.category).slice(0, 4)
 
     if (!searchProductId) {

@@ -24,7 +24,7 @@ const NavBar = () => {
       name: 'Home'
     },
     {
-      path: '/store',
+      path: '/store/all',
       image: Store,
       name: 'Store'
     },
@@ -40,8 +40,8 @@ const NavBar = () => {
   ];
 
   const { cart } = useCartContext();
-  console.log("Carrito", cart.length)
-
+  /* console.log("Carrito", cart.length)
+ */
 
   return (
     <>
@@ -74,7 +74,7 @@ const NavBar = () => {
             {paths.slice(2).map((item, index) => (
               <div className="flex items-center space-x-2 pt-1" key={index}>
                 <div className="flex items-center space-x-2 gap-1">
-                  {item.name == 'Cart' || item.name == 'cart' ? <button onClick={toggle}><Image src={item.image} alt={item.name ? item.name : ""} width="20" /><span className="text-xs font-bold absolute top-5 right-2  w-5 h-5 flex justify-center items-center">{cart.length === 0 ? "": cart.length}</span></button> :
+                  {item.name == 'Cart' || item.name == 'cart' ? <button onClick={toggle}><Image src={item.image} alt={item.name ? item.name : ""} width="20" /><span className="text-xs font-bold absolute top-5 right-2  w-5 h-5 flex justify-center items-center">{cart.length === 0 ? "" : cart.length}</span></button> :
                     <div className="flex flex-col items-center">
                       <Image src={item.image} alt={item.name ? item.name : ""} width="20" />
                     </div>}

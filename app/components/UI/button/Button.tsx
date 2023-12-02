@@ -6,7 +6,7 @@ interface ButtonProps {
 }
 const Button: React.FC<ButtonProps> = ({ children }) => {
   return (
-    <Link href="/store">
+    <Link href="/store/all">
       <div className="text-white text-xs font-medium text-center uppercase no-underline border-solid border-1 border-white border-2 bg-transparent cursor-pointer inline-block py-3 px-7">
         {children}
       </div>

@@ -18,16 +18,14 @@ interface CartContextType {
     cart: Product[];
     addToCart: (item: Product) => void;
     removeItem: (itemId: string) => void;
-    products: Product[];
 }
 interface CartProviderProps {
     children: React.ReactNode;
 }
 
 export const CartProvider = ({ children }: CartProviderProps) => {
-    const [products, setProducts] = useState([]);
     const [cart, setCart] = useState<Product[]>([]);
-    /*  console.log("Carrito", cart.length)*/
+
 
 
     useEffect(() => {
@@ -35,19 +33,6 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         if (cart) {
             setCart(JSON.parse(cart));
         }
-    }, []);
-
-
-
-    const getProduct = async () => {
-        const res = await fetch('http://localhost:3000/api/products',
-            { cache: "no-store" });
-        const data = await res.json();
-        setProducts(data);
-    };
-
-    useEffect(() => {
-        getProduct();
     }, []);
 
 
@@ -86,8 +71,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     const value: CartContextType = {
         cart,
         addToCart,
-        removeItem,
-        products
+        removeItem, 
     }
 
 
