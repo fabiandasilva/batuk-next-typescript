@@ -1,4 +1,8 @@
 import { Card } from '@/app/components'
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '@/firebase/config'
+
+
 import React from 'react'
 
 interface ParamsType {
@@ -13,12 +17,43 @@ export async function generateMetadata({ params }: ParamsType) {
     };
 }
 
+/* export async function getStaticPaths() {
+    return {
+        paths: [
+            { params: { category: 'Remera' } },
+            { params: { category: 'Buzo' } },
+            { params: { category: 'Campera' } },
+            { params: { category: 'Accesorios' } }
+        ],
+        fallback: false,
+    };
+}
+ */
+
+const getProducts = async (params: string) => {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    const productsRef = collection(db, 'productos');
+    const q = params === "all" ? productsRef
+        : query(productsRef, where('category', '==', params))
+
+    const querySnapshot = await getDocs(q)
+
+    return querySnapshot.docs.map(docSnapshot => docSnapshot.data())
+}
+
 const page = async ({ params }: ParamsType) => {
-    const categoria = params.category
-    const getProducts = await fetch(`http://localhost:3000/api/products/${categoria}`, {
+
+    //Descoemntar para usar con json-server
+    /* const getProducts = await fetch(`http://localhost:3000/api/products/${categoria}`, {
         cache: 'no-store'
     })
-    const products = await getProducts.json()
+    const products = await getProducts.json() */
+
+
+    const categoria = params.category
+    const products = await (await getProducts(categoria))
+    console.log(products)
 
     return (
         <>
