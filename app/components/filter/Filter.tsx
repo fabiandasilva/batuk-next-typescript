@@ -6,6 +6,7 @@ const FilterAside = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
 
   const categories = [
+    "Todos",
     "Remera",
     "Accesorios",
     "Buzos",

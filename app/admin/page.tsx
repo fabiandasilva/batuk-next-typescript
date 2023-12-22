@@ -1,13 +1,12 @@
 import React from 'react'
+import ProductTable from '../components/productTable/ProductTable'
 
-const Admin = () => {
+const AdminPage = () => {
   return (
     <div className=' pt-48 pb-48 flex justify-center flex-col text-center'>        
-        <h1>Seguimos trabajando </h1>
-        <br/>
-        <p>pronto estará disponible</p>
+       <ProductTable/>
     </div>
   )
 }
 
-export default Admin
+export default AdminPage

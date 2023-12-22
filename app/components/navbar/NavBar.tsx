@@ -24,7 +24,7 @@ const NavBar = () => {
       name: 'Home'
     },
     {
-      path: '/store/all',
+      path: '/store/Todos',
       image: Store,
       name: 'Store'
     },

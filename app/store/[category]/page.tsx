@@ -34,7 +34,7 @@ const getProducts = async (params: string) => {
     await new Promise(resolve => setTimeout(resolve, 1000));
 
     const productsRef = collection(db, 'productos');
-    const q = params === "all" ? productsRef
+    const q = params === "Todos" ? productsRef
         : query(productsRef, where('category', '==', params))
 
     const querySnapshot = await getDocs(q)
@@ -53,7 +53,7 @@ const page = async ({ params }: ParamsType) => {
 
     const categoria = params.category
     const products = await (await getProducts(categoria))
-    console.log(products)
+     console.log('products', products) 
 
     return (
         <>
