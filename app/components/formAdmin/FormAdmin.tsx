@@ -26,7 +26,7 @@ export default function FormAdmin({ values, handleSubmit, handleChange, setFile,
 
                     <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 
-                        {hide ? <div className="sm:col-span-3">
+                        {hide ? <div className="sm:col-span-5">
                             <label htmlFor="id" className="block text-sm font-medium leading-6 text-gray-900">
                                 Id
                             </label>

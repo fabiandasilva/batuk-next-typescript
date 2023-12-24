@@ -73,7 +73,7 @@ const Page = async ({ params }: ParamsType) => {
 
     const searchProductId = findProduct.find((product) => product.id === (id));
 
-    console.log('searchProductId', searchProductId)
+    /* console.log('searchProductId', searchProductId) */
 
     const renderProductWhitCategory = findProduct.filter((product) => product.category === searchProductId?.category).slice(0, 4)
 

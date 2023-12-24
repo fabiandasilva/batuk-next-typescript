@@ -114,7 +114,10 @@ const EditForm = ({ params }) => {
             <FormAdmin values={values}
                 handleSubmit={handleSubmit}
                 handleChange={handleChange}
-                setFile={setFile} />
+                setFile={setFile} 
+                hide={false}
+                />
+                
         </div>
     );
 };

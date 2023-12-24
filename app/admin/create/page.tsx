@@ -73,7 +73,7 @@ const CreateForm = () => {
             await createProduct(values, file);
             toast.success("Producto creado correctamente.");
         } catch (error) {
-            console.warn('Error en:',error);
+            console.warn('Error en:', error);
             toast.error("Ocurrió un error al crear el producto.");
         }
 
@@ -86,8 +86,9 @@ const CreateForm = () => {
             <FormAdmin values={values}
                 handleSubmit={handleSubmit}
                 handleChange={handleChange}
-                setFile={setFile} />
-                hide={true}	
+                setFile={setFile}
+                hide={true} />
+
             <Notifications />
         </div>
     );
