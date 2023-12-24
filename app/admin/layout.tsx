@@ -1,4 +1,5 @@
 import React from 'react'
+import AdminNavBar from '../components/adminNavbar/AdminNavbar'
 
 export const metadata = {
   title: 'Admin',
@@ -12,7 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <AdminNavBar />
+        {children}</body>
     </html>
   )
 }
