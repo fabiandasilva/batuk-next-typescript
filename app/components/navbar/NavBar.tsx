@@ -5,6 +5,8 @@ import React, { useState } from 'react';
 import { Logo, Home, Store, User, Cart } from "@/public/index";
 import CartList from '@/app/components/cart/Cart';
 import { useCartContext } from '@/app/context/CartContex';
+import Popover from '@mui/material/Popover';
+import Box from '@mui/material/Box';
 
 interface Path {
   name?: string;
@@ -14,9 +16,7 @@ interface Path {
 
 const NavBar = () => {
   const [open, setOpen] = useState(false)
-  const toggle = () => {
-    setOpen(!open);
-  };
+
   const paths: Path[] = [
     {
       path: '/',
@@ -42,6 +42,17 @@ const NavBar = () => {
   const { cart } = useCartContext();
   /* console.log("Carrito", cart.length)
  */
+
+
+  const [popoverOpen, setPopoverOpen] = useState(false)
+  const togglePopover = () => {
+    setPopoverOpen(!popoverOpen);
+  };
+
+  const toggleCartList = () => {
+    setOpen(!open);
+  }
+
 
   return (
     <>
@@ -74,10 +85,39 @@ const NavBar = () => {
             {paths.slice(2).map((item, index) => (
               <div className="flex items-center space-x-2 pt-1" key={index}>
                 <div className="flex items-center space-x-2 gap-1">
-                  {item.name == 'Cart' || item.name == 'cart' ? <button onClick={toggle}><Image src={item.image} alt={item.name ? item.name : ""} width="20" /><span className="text-xs font-bold absolute top-5 right-2  w-5 h-5 flex justify-center items-center">{cart.length === 0 ? "" : cart.length}</span></button> :
-                    <div className="flex flex-col items-center">
+                  {item.name === 'Cart' ? (
+                    <button onClick={toggleCartList}>
                       <Image src={item.image} alt={item.name ? item.name : ""} width="20" />
-                    </div>}
+                      <span className="text-xs font-bold absolute top-5 right-2  w-5 h-5 flex justify-center items-center">
+                        {cart.length === 0 ? "" : cart.length}
+                      </span>
+                    </button>
+                  ) : (
+                    <div className="flex flex-col items-center">
+                      <button onClick={togglePopover}>
+                        <Image src={item.image} alt={item.name ? item.name : ""} width="20" />
+                      </button>
+                      <Popover
+                        open={popoverOpen}
+                        anchorOrigin={{
+                          vertical: 'top',
+                          horizontal: 'right',
+                        }}
+                        transformOrigin={{
+                          vertical: 'top',
+                          horizontal: 'right'
+                        }}
+                        onClose={() => setPopoverOpen(false)}
+                      >
+                        <Box p={1} style={{ top: 200 }}>
+                          <div className='flex flex-col'>
+                            <Link href="/login"> <button>Iniciar sesión</button></Link>
+                            <Link href="/signup"><button>Registrarse</button></Link>
+                          </div>
+                        </Box>
+                      </Popover>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
