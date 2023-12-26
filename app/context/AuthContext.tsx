@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 import React, { createContext, useContext, useEffect, useState } from 'react'
 
 
-const AuthContext = createContext()
+const AuthContext = createContext({})
 
 export const useAuthContext = () => useContext(AuthContext)
 
@@ -29,11 +29,20 @@ export const AuthProvider = ({ children }: AuthContextProps) => {
         password: string;
     };
     const createUser = async (values: UserCredentials) => {
-        await createUserWithEmailAndPassword(auth, values.email, values.password)
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
+            console.log(userCredential);
+        } catch (error) {
+            console.error("Error al crear usuario:", error.message);
+        }
     }
-
     const loginUser = async (values: UserCredentials) => {
-        await signInWithEmailAndPassword(auth, values.email, values.password)
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
+            console.log(userCredential);
+        } catch (error) {
+            console.error("Error al ingresar con un usuario registrado:", error.message);
+        }        
     }
 
     const logoutUser = async () => {

@@ -1,4 +1,5 @@
 
+import { useAuthContext } from '@/app/context/AuthContext'
 import Link from 'next/link'
 import React from 'react'
 
@@ -6,10 +7,13 @@ interface Props {
     segments: string[]
 }
 
-export const BreadCrumb = ({ segments }: Props) => {
+export const Navigator = ({ segments }: Props) => {
+
+    const { logoutUser, user } = useAuthContext()
+
     return (
         <main className="bg-gray-100 p-4">
-            <ol role="list" className="flex items-center space-x-2">
+            <ol role="list" className="flex  justify-between space-x-2">
                 {segments.map((segment, index) => (
                     <li key={index}>
                         <div className="flex items-center text-blue-500 hover:underline">
@@ -35,6 +39,17 @@ export const BreadCrumb = ({ segments }: Props) => {
                         </div>
                     </li>
                 ))}
+                {user?.logged && (
+                    <li>
+                        <button
+                            onClick={logoutUser}
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
+                            </svg>
+                        </button>
+                    </li>
+                )}
             </ol>
         </main>
     )

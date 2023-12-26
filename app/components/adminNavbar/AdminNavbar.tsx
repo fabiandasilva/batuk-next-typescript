@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { Logo } from "@/public/index";
-import { BreadCrumb } from '../breadCrumb/BreadCrumb';
+import { Navigator } from '../navigator/Navigator';
 
 
 
@@ -31,8 +31,13 @@ const AdminNavBar = () => {
                         </li>
                     </ul>
                 </nav>
-                
-                <BreadCrumb segments={['admin']} />
+
+                <Navigator segments={['admin']} />
+                <div className="flex flex-row flex-nowrap justify-center items-end p-4">
+
+                    
+
+                </div>
 
             </header>
 

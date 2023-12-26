@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import Footer from '../components/footer/Footer' 
 import { CartProvider } from '../context/CartContex';
 import { NavBar } from '../components';
+import { AuthProvider } from '../context/AuthContext';
 
 
 export const metadata: Metadata = {
@@ -19,11 +20,13 @@ export default function RootLayout({
     <html lang="en">
 
       <body>
+      <AuthProvider>
         <CartProvider>          
           <NavBar />
           {children}
           <Footer />
         </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   )
