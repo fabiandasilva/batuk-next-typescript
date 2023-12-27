@@ -37,8 +37,8 @@ const SignupForm: React.FC<SignupFormProps> = ({ handleChange, handleSubmit, val
                             <input
                                 name='displayName'
                                 value={values.displayName}
-                                placeholder='Juan Perez'
                                 onChange={handleChange}
+                                placeholder='Juan Perez'
                                 required
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
@@ -53,8 +53,8 @@ const SignupForm: React.FC<SignupFormProps> = ({ handleChange, handleSubmit, val
                             <input
                                 name='email'
                                 value={values.email}
-                                placeholder='correofalso@hotmail.com'
                                 onChange={handleChange}
+                                placeholder='correofalso@hotmail.com'
                                 required
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />

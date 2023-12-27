@@ -7,6 +7,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import ButtonCart from '../UI/buttonCart/ButtonCart'
 import { useCartContext } from '@/app/context/CartContex'
+import Link from 'next/link'
 
 
 
@@ -146,9 +147,11 @@ const CartList = ({ open, setOpen }: CartListProps) => {
                       </div>
 
                       <div className="mt-6">
+                        <Link href="/store/checkout">
                         <ButtonCart onClick={() => { }}>
                           Finalizar compra
                         </ButtonCart>
+                        </Link>
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>

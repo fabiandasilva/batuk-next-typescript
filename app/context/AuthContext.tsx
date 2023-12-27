@@ -58,6 +58,9 @@ export const AuthProvider = ({ children }: AuthContextProps) => {
         }
     };
 
+ 
+
+
     const loginUser = async (values: UserCredentials) => {
         try {
             const userCredential = await signInWithEmailAndPassword(
@@ -80,7 +83,7 @@ export const AuthProvider = ({ children }: AuthContextProps) => {
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
-            console.log(user);
+            /*   console.log(user); */
             if (user) {
                 setUser({
                     logged: true,
@@ -103,7 +106,7 @@ export const AuthProvider = ({ children }: AuthContextProps) => {
                 user,
                 createUser,
                 loginUser,
-                logoutUser,
+                logoutUser
             }}
         >
             {children}

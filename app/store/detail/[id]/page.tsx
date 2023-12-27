@@ -10,27 +10,21 @@ interface ParamsType {
     };
 }
 
-/* export async function generateMetadata({ params }: ParamsType) {
-    const { id } = params;
-
-    const getProducts = await fetch(`http://localhost:3000/api/products/`, {
-        cache: 'no-store'
-    })
-    const findProduct = await getProducts.json()
+const getAllProducts = async () => {
+    const productsRef = collection(db, 'productos');
+    const querySnapshot = await getDocs(productsRef);
+    return querySnapshot.docs.map(docSnapshot => docSnapshot.data())
+};
 
 
-    const searchProductId = findProduct.find((product) => product.id === parseInt(id));
-
-
-    const nombreProducto = searchProductId.name;
-    const nombreCategoria = searchProductId.category;
-    const productDetail = searchProductId;
-
+export async function generateMetadata({ params }: ParamsType) {
+    const id = params.id
+    const products = await getAllProducts()
+    const product = products.find((product) => product.id === (id));
     return {
-        title: `${nombreCategoria} | ${nombreProducto}`,
-        productDetails: productDetail,
+        title: `Batuk | ${product?.name}`,
     };
-} */
+}
 
 
 interface Product {

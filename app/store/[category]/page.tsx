@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: ParamsType) {
     };
 }
 
-/* export async function getStaticPaths() {
+export async function getStaticPaths() {
     return {
         paths: [
             { params: { category: 'Remera' } },
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: ParamsType) {
         fallback: false,
     };
 }
- */
+
 
 const getProducts = async (params: string) => {
     await new Promise(resolve => setTimeout(resolve, 1000));

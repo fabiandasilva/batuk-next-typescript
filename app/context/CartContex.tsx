@@ -68,10 +68,16 @@ export const CartProvider = ({ children }: CartProviderProps) => {
 
     }
 
+    const clearCart = () => {
+        setCart([]);
+        localStorage.removeItem('cart');
+    }
+
     const value: CartContextType = {
         cart,
         addToCart,
         removeItem, 
+        clearCart
     }
 
 
