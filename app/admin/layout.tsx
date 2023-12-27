@@ -2,18 +2,23 @@
 import React from "react"
 import AdminNavBar from "../components/adminNavbar/AdminNavbar"
 import { useAuthContext } from "../context/AuthContext"
+import { Notifications } from "../components"
 
 
 
 const AdminLayout = ({ children, login }) => {
-  const { user } = useAuthContext()
-  /* console.log(user.uid) */
-  /*   const uid = "S9YrIQmTJxTYnllsDun69R0zZ3g1" */
+  const { user } = useAuthContext() 
+
+  const tokenAccess = "PQXtc7u3wlbo3X0pLOUYKMTF1ro1"
+
+  console.log(user?.uid === tokenAccess)
+
+  
 
   return (
     <div>
-      <AdminNavBar />
-      {user?.logged ? children : login}
+      <AdminNavBar />      
+      {user?.logged && user?.uid === tokenAccess ? children : login}
     </div>
   )
 }

@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import AdminLogIn from "@/app/components/adminLogIn/AdminLogIn";
 import { useAuthContext } from "@/app/context/AuthContext";
+import { Notifications } from "@/app/components";
+import { toast } from "react-toastify";
 
 export default function LogIn() {
   const { loginUser } = useAuthContext();
@@ -19,6 +21,15 @@ export default function LogIn() {
   };
 
   const handleSubmit = (e) => {
+    try {
+      e.preventDefault();
+      loginUser(values);
+      /* console.log("Datos enviados", values); */
+    } catch (error) {
+      toast.error("No tienes acceso al admin.");
+    }
+
+
     e.preventDefault();
     loginUser(values);
     /* console.log("Datos enviados", values); */
@@ -31,6 +42,7 @@ export default function LogIn() {
         handleSubmit={handleSubmit}
         values={values}
       />
+      <Notifications />
     </>
   );
 }

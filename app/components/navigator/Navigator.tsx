@@ -17,12 +17,13 @@ export const Navigator = ({ segments }: Props) => {
                 {segments.map((segment, index) => (
                     <li key={index}>
                         <div className="flex items-center text-blue-500 hover:underline">
-                            <Link href={`/${segments.slice(0, index + 1).join('/')}`}>
+                            {user?.logged && (<Link href={`/${segments.slice(0, index + 1).join('/')}`}>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
                                 </svg>
 
-                            </Link>
+                            </Link>)}
+
                             {index < segments.length - 1 && (
                                 <svg
                                     className="mx-2 h-4 w-4 fill-current text-gray-500"
