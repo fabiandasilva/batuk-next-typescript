@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
 
-First, run the development server:
+### ⚡ | Curso Next.js Coder House - Ecommerce Batuk Autoadministrable
+<hr>
+<p>¡Bienvenido al curso de Next.js en Coder House! Este proyecto es un Ecommerce Batuk que puedes administrar fácilmente.</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Instrucciones de Configuración
+Clona el repositorio en tu máquina local.
+Realiza un npm install para instalar las dependencias del proyecto.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Explorando la API
+La API está disponible en http://localhost:3000/api/products. Puedes utilizarla como referencia para cargar y gestionar los productos desde el administrador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Acceso al Administrador
+Para acceder al panel de administrador, visita http://localhost:3000/admin e inicia sesión con las siguientes credenciales:
+<ul>
+    <li>Correo Electrónico: batuk@hotmail.com
+    </li>
+    <li>Contraseña: test123456
+    </li>
+</ul>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+En el panel de administrador, tendrás acceso a las siguientes acciones:
 
-## Learn More
+Editar: Modifica la información de los productos. <br>
+Agregar: Añade nuevos productos al catálogo. <br>
+Eliminar: Elimina productos existentes de manera sencilla. <br>
 
-To learn more about Next.js, take a look at the following resources:
+¡Disfruta explorando y gestionando tu tienda con Next.js! 😊
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<hr>
+La carga de productos y creacion de usuarios se carga todo de forma dinamica en firebase, firestore y  firebase authentication.
+<hr>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Tecnologias
+- React <br>
+- NextJS <br>
+- Typescript <br>
+- Firebase <br>
+- Tailwind <br>
+- MUI
